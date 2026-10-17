@@ -1,0 +1,37 @@
+<Window x:Class="KoshechkinCalculatorApp.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Калькулятор выражений" Height="570" Width="390"
+        MinHeight="520" MinWidth="350" WindowStartupLocation="CenterScreen"
+        Background="{StaticResource Paper}" PreviewKeyDown="Window_PreviewKeyDown">
+    <Window.Resources>
+        <Style TargetType="Button">
+            <Setter Property="Margin" Value="5"/><Setter Property="FontSize" Value="18"/>
+            <Setter Property="Foreground" Value="{StaticResource Ink}"/><Setter Property="Background" Value="White"/>
+            <Setter Property="BorderBrush" Value="#D8E0EC"/><Setter Property="BorderThickness" Value="1"/>
+            <Setter Property="Cursor" Value="Hand"/>
+            <EventSetter Event="Click" Handler="KeyButton_Click"/>
+        </Style>
+    </Window.Resources>
+    <Grid Margin="22">
+        <Grid.RowDefinitions><RowDefinition Height="Auto"/><RowDefinition Height="Auto"/><RowDefinition Height="*"/><RowDefinition Height="Auto"/></Grid.RowDefinitions>
+        <TextBlock Text="ВЫЧИСЛЕНИЯ" FontSize="13" FontWeight="Bold" Foreground="#71809A"/>
+        <StackPanel Grid.Row="1" Margin="0,12,0,18">
+            <TextBox x:Name="ExpressionBox" Height="58" FontSize="25" Padding="12,8"
+                     HorizontalContentAlignment="Right" VerticalContentAlignment="Center"
+                     BorderBrush="#D8E0EC" Text="0"/>
+            <TextBlock x:Name="ResultText" Text="Введите выражение" Margin="4,8,2,0"
+                       FontSize="14" Foreground="#71809A" HorizontalAlignment="Right"/>
+        </StackPanel>
+        <UniformGrid Grid.Row="2" Columns="4" Rows="5">
+            <Button Content="AC"/><Button Content="("/><Button Content=")"/><Button Content="÷" Tag="/"/>
+            <Button Content="7"/><Button Content="8"/><Button Content="9"/><Button Content="×" Tag="*"/>
+            <Button Content="4"/><Button Content="5"/><Button Content="6"/><Button Content="−" Tag="-"/>
+            <Button Content="1"/><Button Content="2"/><Button Content="3"/><Button Content="+"/>
+            <Button Content="^"/><Button Content="0"/><Button Content=","/><Button Content="=" Background="{StaticResource Accent}" Foreground="White"/>
+        </UniformGrid>
+        <TextBlock Grid.Row="3" Margin="3,12,3,0" Text="Десятичные числа, скобки и степень поддерживаются"
+                   FontSize="11" Foreground="#71809A" TextWrapping="Wrap"/>
+    </Grid>
+</Window>
+
